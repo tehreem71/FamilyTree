@@ -9,10 +9,14 @@ import javax.swing.JFrame;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import bll.IBLL;
 import bll.PersonBO;
 
 public class FamilyTreeView implements ActionListener {
-
+	
+	//for interface//
+	private IBLL bo;
+	///
 	private JFrame frame1;
 	private JFrame frame2;
 	private JTextField cnic1;
@@ -22,10 +26,10 @@ public class FamilyTreeView implements ActionListener {
 	private JButton namebutton;
 	private JTextArea result;
 	private JTextArea nameresult;
-	private PersonBO bo;
+	
 	
 	public FamilyTreeView() throws SQLException {
-		bo = new PersonBO();
+//		bo = new PersonBO();
 		frame1 = new JFrame("Half Siblings Check App");
 		frame2 = new JFrame("Name Check App");
 		cnic1 = new JTextField("person 1 CNIC");
@@ -36,6 +40,10 @@ public class FamilyTreeView implements ActionListener {
 		nameresult = new JTextArea();
 		namebutton = new JButton("Search");
 	}
+	public FamilyTreeView(IBLL bo) {
+		this.bo = bo;
+	}
+
 	public void viewSibling() {
 
 		cnic1.setBounds(50, 50, 200, 50);
